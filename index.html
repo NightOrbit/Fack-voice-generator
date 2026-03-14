@@ -44,6 +44,222 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
         
+        /* ==================== LOGIN OVERLAY ==================== */
+        #loginOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 50px;
+            padding: 50px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+            animation: slideUp 0.5s;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .login-header i {
+            font-size: 60px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .login-header h2 {
+            font-size: 32px;
+            color: #111;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 60px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 5px rgba(0,149,246,0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, var(--primary), #00d2ff);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,149,246,0.4);
+        }
+        
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .user-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .logout-btn {
+            padding: 10px 25px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .logout-btn:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .search-section {
+            background: #f8f9fa;
+            border-radius: 30px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 60px;
+            font-size: 15px;
+        }
+        
+        .search-btn {
+            padding: 15px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .following-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 20px;
+        }
+        
+        .following-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .following-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .following-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .following-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
         /* ==================== HEADER SECTION ==================== */
         .header {
             display: flex;
@@ -176,281 +392,6 @@
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.5; transform: scale(1.2); }
-        }
-        
-        /* ==================== LOGIN OVERLAY ==================== */
-        #loginOverlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.98);
-            backdrop-filter: blur(20px);
-            z-index: 999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .login-card {
-            background: white;
-            border-radius: 50px;
-            padding: 50px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.5);
-        }
-        
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .login-header i {
-            font-size: 60px;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .login-header h2 {
-            font-size: 28px;
-            color: #111;
-        }
-        
-        .login-tabs {
-            display: flex;
-            gap: 10px;
-            background: #f1f3f5;
-            padding: 5px;
-            border-radius: 60px;
-            margin: 25px 0;
-        }
-        
-        .login-tab {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 60px;
-            background: transparent;
-            font-weight: 600;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .login-tab.active {
-            background: white;
-            color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .login-form {
-            display: block;
-        }
-        
-        .login-form.hidden {
-            display: none;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        .input-group label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 18px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 60px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .input-group input:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 5px rgba(0,149,246,0.1);
-        }
-        
-        .login-btn {
-            width: 100%;
-            padding: 18px;
-            background: linear-gradient(45deg, var(--primary), #00d2ff);
-            color: white;
-            border: none;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,149,246,0.4);
-        }
-        
-        .otp-section {
-            display: none;
-            margin-top: 25px;
-            padding: 25px;
-            background: #f0f9ff;
-            border-radius: 30px;
-            border: 2px solid var(--primary);
-        }
-        
-        .otp-section.active {
-            display: block;
-        }
-        
-        .email-badge {
-            background: white;
-            border-radius: 60px;
-            padding: 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            border: 2px solid var(--primary);
-            word-break: break-all;
-        }
-        
-        .otp-timer {
-            text-align: center;
-            color: var(--danger);
-            font-size: 13px;
-            margin: 15px 0;
-        }
-        
-        .user-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 60px;
-            margin-bottom: 20px;
-        }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .user-avatar {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 20px;
-        }
-        
-        .logout-btn {
-            padding: 10px 25px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid white;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        
-        .logout-btn:hover {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .search-section {
-            background: #f8f9fa;
-            border-radius: 30px;
-            padding: 30px;
-            margin: 30px 0;
-        }
-        
-        .search-box {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 60px;
-            font-size: 15px;
-        }
-        
-        .search-btn {
-            padding: 15px 30px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 60px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .following-list {
-            max-height: 400px;
-            overflow-y: auto;
-            margin-top: 20px;
-        }
-        
-        .following-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            background: white;
-            border-radius: 20px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .following-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .following-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .following-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
         }
         
         /* ==================== INPUT SECTION ==================== */
@@ -1239,9 +1180,6 @@
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- ==================== LOGIN OVERLAY ==================== -->
@@ -1250,59 +1188,24 @@
             <div class="login-header">
                 <i class="fab fa-instagram"></i>
                 <h2>Instagram Viewer</h2>
-                <p style="color:#666; margin-top:10px;">Login with your username</p>
+                <p style="color:#666; margin-top:10px;">Enter your username to continue</p>
             </div>
             
-            <div class="login-tabs">
-                <button class="login-tab active" onclick="switchLoginTab('login')">Login</button>
-                <button class="login-tab" onclick="switchLoginTab('forgot')">Forgot Password</button>
-            </div>
-            
-            <!-- Login Form -->
-            <div id="loginForm" class="login-form">
+            <!-- Login Form - Sirf username -->
+            <div id="loginForm">
                 <div class="input-group">
                     <label>Your Instagram Username</label>
                     <input type="text" id="loginUsername" placeholder="e.g., leomessi" value="leomessi">
                 </div>
                 
-                <button class="login-btn" onclick="sendLoginOTP()" id="loginBtn">
-                    <i class="fas fa-paper-plane"></i> Send OTP
+                <button class="login-btn" onclick="loginWithUsername()" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i> Continue to App
                 </button>
             </div>
             
-            <!-- Forgot Password Form -->
-            <div id="forgotForm" class="login-form hidden">
-                <div class="input-group">
-                    <label>Your Instagram Username</label>
-                    <input type="text" id="forgotUsername" placeholder="e.g., leomessi">
-                </div>
-                
-                <button class="login-btn" onclick="sendForgotOTP()" id="forgotBtn">
-                    <i class="fas fa-key"></i> Reset Password
-                </button>
-            </div>
-            
-            <!-- OTP Section (Common) -->
-            <div class="otp-section" id="otpSection">
-                <div class="email-badge" id="otpEmail">
-                    <i class="fas fa-envelope"></i> loading...
-                </div>
-                
-                <div class="input-group">
-                    <label>Enter 4-digit OTP</label>
-                    <input type="text" id="otpCode" placeholder="1234" maxlength="4">
-                </div>
-                
-                <div class="otp-timer" id="otpTimer">OTP expires in 05:00</div>
-                
-                <button class="login-btn" onclick="verifyOTP()" id="verifyBtn">
-                    <i class="fas fa-check-circle"></i> Verify OTP
-                </button>
-                
-                <p style="text-align:center; margin-top:15px;">
-                    <a href="#" onclick="resendOTP()" style="color:var(--primary);">Resend OTP</a>
-                </p>
-            </div>
+            <p style="text-align:center; margin-top:20px; font-size:12px; color:#888;">
+                <i class="fas fa-shield-alt"></i> Just enter your username - no password needed
+            </p>
         </div>
     </div>
     
@@ -1314,7 +1217,7 @@
                 <div class="user-avatar" id="userAvatar">LM</div>
                 <div>
                     <h3 id="userName">leomessi</h3>
-                    <p style="font-size:12px; opacity:0.9;" id="userEmail">leomessi@gmail.com</p>
+                    <p style="font-size:12px; opacity:0.9;" id="userFullName">Lionel Messi</p>
                 </div>
             </div>
             <button class="logout-btn" onclick="logout()">
@@ -1329,7 +1232,7 @@
             </div>
             <div class="header-text">
                 <h1>🔥 INSTAGRAM COMPLETE DATA FETCHER</h1>
-                <p>100% REAL DATA • NO FAKE INFO • NO UNDEFINED • LIVE FROM API</p>
+                <p>100% REAL DATA • NO FAKE INFO • LIVE FROM API</p>
             </div>
         </div>
         
@@ -1338,14 +1241,13 @@
             <span class="badge real"><i class="fas fa-check-circle"></i> REAL DATA ONLY</span>
             <span class="badge real"><i class="fas fa-shield-alt"></i> NO UNDEFINED FIELDS</span>
             <span class="badge real"><i class="fas fa-bolt"></i> LIVE INSTAGRAM API</span>
-            <span class="badge warning"><i class="fas fa-clock"></i> 0 WAIT ERROR</span>
         </div>
         
         <!-- ==================== API KEY SECTION ==================== -->
         <div class="api-section">
             <div class="api-label">
                 <i class="fas fa-key"></i>
-                <span>YOUR RAPIDAPI KEY - ROCK SOLID STABLE API</span>
+                <span>YOUR RAPIDAPI KEY</span>
             </div>
             
             <div class="key-container" id="apiKeyDisplay">
@@ -1354,12 +1256,7 @@
             
             <div class="key-status">
                 <div class="status-dot"></div>
-                <span>✅ API KEY ACTIVE - SUBSCRIBED TO BASIC PLAN</span>
-            </div>
-            
-            <div style="font-size: 13px; color: #555; margin-top: 10px; background: #e8f4ff; padding: 10px; border-radius: 10px;">
-                <i class="fas fa-info-circle"></i> 
-                API Status: Active • 100 requests/hour • No wait time • Real data only
+                <span>✅ API KEY READY</span>
             </div>
         </div>
         
@@ -1379,27 +1276,16 @@
         <div class="input-section">
             <div class="input-label">
                 <i class="fab fa-instagram" style="color: var(--primary);"></i>
-                <span>ENTER INSTAGRAM USERNAME TO FETCH DATA</span>
+                <span>ENTER USERNAME TO FETCH DATA</span>
             </div>
             
             <div class="input-wrapper">
                 <input type="text" class="username-input" id="usernameInput" 
-                       placeholder="e.g., leomessi, cristiano, zuck" value="leomessi">
+                       placeholder="e.g., leomessi, cristiano" value="leomessi">
                 <button class="fetch-btn" id="fetchBtn" onclick="fetchAllInstagramData()">
                     <i class="fas fa-search"></i>
-                    <span>FETCH COMPLETE DATA</span>
+                    <span>FETCH DATA</span>
                 </button>
-            </div>
-            
-            <div style="display: flex; gap: 10px; margin-top: 15px; font-size: 12px; color: #666; flex-wrap: wrap;">
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> 50+ Data Points</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Profile Info</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Location/City</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Contact Info</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Followers List</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Following List</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Posts with Location</span>
-                <span><i class="fas fa-check-circle" style="color: var(--success);"></i> Stories/Highlights</span>
             </div>
         </div>
         
@@ -1407,10 +1293,6 @@
         <div class="loading-section" id="loadingSection">
             <div class="loader"></div>
             <div class="loading-text">FETCHING REAL INSTAGRAM DATA...</div>
-            <div class="loading-subtext">Connecting to RockSolid API • Retrieving profile • Posts • Location • Contact info</div>
-            <div style="margin-top: 20px; font-size: 13px; color: #666;">
-                <i class="fas fa-spinner fa-pulse"></i> This may take 5-10 seconds for complete data
-            </div>
         </div>
         
         <!-- ==================== ERROR SECTION ==================== -->
@@ -1458,241 +1340,53 @@
                     <div class="stat-value" id="followingCount">0</div>
                     <div class="stat-label">FOLLOWING</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="accountAge">0</div>
-                    <div class="stat-label">ACCOUNT AGE</div>
-                </div>
             </div>
             
-            <!-- ========== LOCATION SECTION - PRIMARY ========== -->
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div>
-                    <div class="section-title">LOCATION & CITY INFORMATION</div>
-                    <div class="section-subtitle">Real location data from bio, posts, and tags</div>
-                </div>
-            </div>
-            
-            <div class="location-section">
-                <div class="city-highlight" id="cityName">
-                    <i class="fas fa-map-pin"></i> FETCHING CITY...
-                </div>
-                
-                <div class="location-grid" id="locationGrid">
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-map"></i> Bio Location</div>
-                        <div class="value" id="bioLocation">Not Available</div>
-                    </div>
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-flag"></i> Country</div>
-                        <div class="value" id="country">Not Available</div>
-                    </div>
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-globe"></i> Timezone</div>
-                        <div class="value" id="timezone">Not Available</div>
-                    </div>
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-hashtag"></i> Most Tagged City</div>
-                        <div class="value" id="mostTaggedCity">Not Available</div>
-                    </div>
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-calendar"></i> Last Post Location</div>
-                        <div class="value" id="lastPostLocation">Not Available</div>
-                    </div>
-                    <div class="location-box">
-                        <div class="label"><i class="fas fa-star"></i> Frequently Visited</div>
-                        <div class="value" id="frequentLocations">Not Available</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ========== CONTACT SECTION - EMAIL, PHONE ========== -->
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-address-card"></i></div>
-                <div>
-                    <div class="section-title">CONTACT INFORMATION</div>
-                    <div class="section-subtitle">Real emails, phone numbers from bio & business info</div>
-                </div>
-            </div>
-            
-            <div class="contact-section">
-                <div class="email-box" id="emailDisplay">
-                    <i class="fas fa-envelope"></i> No email found in bio
-                </div>
-                
-                <div class="contact-grid" id="contactGrid">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-text">
-                            <div class="label">PHONE NUMBER</div>
-                            <div class="value" id="phoneNumber">Not Available</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-link"></i></div>
-                        <div class="contact-text">
-                            <div class="label">WEBSITE</div>
-                            <div class="value" id="website">Not Available</div>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                        <div class="contact-text">
-                            <div class="label">WHATSAPP</div>
-                            <div class="value" id="whatsapp">Not Available</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ========== ACCOUNT STATUS SECTION ========== -->
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-shield-alt"></i></div>
-                <div>
-                    <div class="section-title">ACCOUNT STATUS & METADATA</div>
-                    <div class="section-subtitle">Privacy, verification, and account details</div>
-                </div>
-            </div>
-            
-            <div class="status-section">
-                <div class="status-grid" id="statusGrid">
-                    <div class="status-item">
-                        <div class="label">ACCOUNT TYPE</div>
-                        <div class="value" id="accountType">Public</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="label">VERIFIED</div>
-                        <div class="value" id="verified">No</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="label">BUSINESS ACCOUNT</div>
-                        <div class="value" id="businessAccount">No</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="label">PROFESSIONAL CATEGORY</div>
-                        <div class="value" id="category">Not Available</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="label">ACCOUNT CREATED</div>
-                        <div class="value" id="createdAt">Unknown</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="label">LAST ACTIVE</div>
-                        <div class="value" id="lastActive">Unknown</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ========== RECENT POSTS WITH LOCATIONS ========== -->
+            <!-- ========== RECENT POSTS ========== -->
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-images"></i></div>
                 <div>
-                    <div class="section-title">RECENT POSTS WITH LOCATIONS</div>
-                    <div class="section-subtitle">Last 12 posts - showing real location tags</div>
+                    <div class="section-title">RECENT POSTS</div>
                 </div>
             </div>
             
-            <div class="posts-grid" id="postsGrid">
-                <!-- Posts will be populated here -->
-            </div>
-            
-            <!-- ========== STORIES & HIGHLIGHTS ========== -->
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-story"></i></div>
-                <div>
-                    <div class="section-title">STORIES & HIGHLIGHTS</div>
-                    <div class="section-subtitle">Current stories and saved highlights</div>
-                </div>
-            </div>
-            
-            <div class="stories-section">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <h3 style="font-size: 18px;">📸 ACTIVE STORIES</h3>
-                    <span class="badge real" id="storiesCount">0 stories</span>
-                </div>
-                <div class="stories-grid" id="storiesGrid">
-                    <div class="story-item">
-                        <div class="story-icon"><i class="fas fa-clock"></i></div>
-                        <div>No active stories</div>
-                    </div>
-                </div>
-                
-                <div style="margin-top: 30px;">
-                    <h3 style="font-size: 18px; margin-bottom: 15px;">✨ STORY HIGHLIGHTS</h3>
-                    <div class="highlights-grid" id="highlightsGrid">
-                        <div class="highlight-item">
-                            <div class="highlight-cover"><i class="fas fa-star"></i></div>
-                            <div class="highlight-title">No highlights</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="posts-grid" id="postsGrid"></div>
             
             <!-- ========== FOLLOWERS LIST ========== -->
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-users"></i></div>
                 <div>
-                    <div class="section-title">FOLLOWERS LIST</div>
-                    <div class="section-subtitle">Real followers with available contact info</div>
+                    <div class="section-title">FOLLOWERS</div>
                 </div>
             </div>
             
             <div class="followers-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="font-size: 18px;">👥 TOTAL FOLLOWERS: <span id="totalFollowers">0</span></h3>
-                    <span class="badge real"><i class="fas fa-download"></i> EMAILS EXTRACTED: <span id="extractedEmailsCount">0</span></span>
+                    <h3 style="font-size: 18px;">TOTAL: <span id="totalFollowers">0</span></h3>
                 </div>
-                
-                <div class="followers-list" id="followersList">
-                    <!-- Followers will be listed here -->
-                    <div style="padding: 30px; text-align: center; color: #888;">
-                        <i class="fas fa-users" style="font-size: 40px; margin-bottom: 10px;"></i>
-                        <p>Fetching followers list...</p>
-                    </div>
-                </div>
+                <div class="followers-list" id="followersList"></div>
             </div>
             
             <!-- ========== FOLLOWING LIST ========== -->
             <div class="section-header">
                 <div class="section-icon"><i class="fas fa-user-friends"></i></div>
                 <div>
-                    <div class="section-title">FOLLOWING LIST</div>
-                    <div class="section-subtitle">Accounts this user follows</div>
+                    <div class="section-title">FOLLOWING</div>
                 </div>
             </div>
             
             <div class="following-section">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                    <h3 style="font-size: 18px;">👤 TOTAL FOLLOWING: <span id="totalFollowing">0</span></h3>
+                    <h3 style="font-size: 18px;">TOTAL: <span id="totalFollowing">0</span></h3>
                 </div>
-                
-                <div class="followers-list" id="followingListSection">
-                    <!-- Following will be listed here -->
-                    <div style="padding: 30px; text-align: center; color: #888;">
-                        <i class="fas fa-user-friends" style="font-size: 40px; margin-bottom: 10px;"></i>
-                        <p>Fetching following list...</p>
-                    </div>
-                </div>
+                <div class="followers-list" id="followingListSection"></div>
             </div>
             
-            <!-- ========== ACTIVITY TIMELINE ========== -->
-            <div class="section-header">
-                <div class="section-icon"><i class="fas fa-history"></i></div>
-                <div>
-                    <div class="section-title">ACTIVITY TIMELINE</div>
-                    <div class="section-subtitle">Recent activity and posting patterns</div>
-                </div>
-            </div>
-            
-            <div class="timeline-section" id="timelineSection">
-                <!-- Timeline items will be added here -->
-            </div>
-            
-            <!-- ========== RAW DATA SECTION ========== -->
+            <!-- ========== RAW DATA ========== -->
             <div class="raw-data-section">
                 <div class="raw-data-header" onclick="toggleRawData()">
                     <i class="fas fa-code" style="font-size: 20px; color: var(--primary);"></i>
-                    <span style="font-weight: 600;">VIEW COMPLETE RAW JSON DATA (NO FAKE, ALL REAL)</span>
+                    <span>VIEW RAW DATA</span>
                     <i class="fas fa-chevron-down" id="rawDataIcon"></i>
                 </div>
                 <div class="raw-data-content" id="rawDataContent">
@@ -1702,11 +1396,8 @@
             
             <!-- ========== FOOTER ========== -->
             <div class="footer">
-                <p><strong>🔥 100% REAL INSTAGRAM DATA FETCHER</strong></p>
-                <p>✅ No fake data • ✅ No undefined • ✅ Live from RockSolid API • ✅ 50+ data points</p>
-                <p style="font-size: 12px; margin-top: 15px;">
-                    <i class="fas fa-shield-alt"></i> Data is fetched in real-time. Private accounts: Only data you have access to.
-                </p>
+                <p><strong>🔥 REAL INSTAGRAM DATA FETCHER</strong></p>
+                <p>✅ Live from API • No fake data</p>
             </div>
         </div>
     </div>
@@ -1716,38 +1407,15 @@
         const RAPIDAPI_KEY = '054a15d4e9msh27b0188df9a08dbp1bb02ejsnb6b14d564593';
         const RAPIDAPI_HOST = 'instagram-scraper-stable-api.p.rapidapi.com';
         
-        // EmailJS initialization
-        emailjs.init("koEV9xXksZoCaxlxV");
-        
-        // Valid Instagram usernames
+        // Valid Instagram usernames - REAL ONES
         const VALID_USERS = [
             'leomessi', 'cristiano', 'kimkardashian', 'kyliejenner', 
             'therock', 'arianagrande', 'selenagomez', 'zuck',
             'natgeo', 'nasa', 'bbcnews', 'cnn', '9gag', 'memes',
-            'nightorbit', 'gyidibazar', 'farooq', 'anshuman'
+            'nightorbit', 'gyidibazar', 'farooq', 'anshuman',
+            // Add your original Instagram ID here
+            'your_instagram_username'
         ];
-        
-        // User emails mapping
-        const USER_EMAILS = {
-            'leomessi': 'leomessi@gmail.com',
-            'cristiano': 'cristiano@realmadrid.com',
-            'kimkardashian': 'kim@kardashian.com',
-            'kyliejenner': 'kylie@kyliecosmetics.com',
-            'therock': 'therock@wwe.com',
-            'arianagrande': 'ariana@republicrecords.com',
-            'selenagomez': 'selena@interscope.com',
-            'zuck': 'zuck@meta.com',
-            'natgeo': 'natgeo@natgeo.com',
-            'nasa': 'nasa@space.gov',
-            'bbcnews': 'bbcnews@bbc.co.uk',
-            'cnn': 'cnn@turner.com',
-            '9gag': '9gag@9gag.com',
-            'memes': 'memes@instagram.com',
-            'nightorbit': 'nightorbit.official@gmail.com',
-            'gyidibazar': 'gyidibazar@gmail.com',
-            'farooq': 'farooqahmedg90@gmail.com',
-            'anshuman': 'anshuman@gmail.com'
-        };
         
         // Following relationships
         const FOLLOWING_RELATIONS = {
@@ -1761,39 +1429,17 @@
             'gyidibazar': ['farooq', 'nightorbit', 'cristiano']
         };
         
-        // Global variables
+        // Current logged in user
         let currentUser = null;
-        let otpData = {
-            code: null,
-            username: null,
-            email: null,
-            timestamp: null,
-            mode: 'login'
-        };
-        let otpTimer = null;
         
+        // Data storage
         let profileData = {};
         let postsData = [];
         let followersData = [];
         let followingData = [];
-        let storiesData = [];
-        let highlightsData = [];
         
-        // ==================== LOGIN FUNCTIONS ====================
-        function switchLoginTab(tab) {
-            document.querySelectorAll('.login-tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.login-form').forEach(f => f.classList.add('hidden'));
-            
-            if (tab === 'login') {
-                document.querySelectorAll('.login-tab')[0].classList.add('active');
-                document.getElementById('loginForm').classList.remove('hidden');
-            } else {
-                document.querySelectorAll('.login-tab')[1].classList.add('active');
-                document.getElementById('forgotForm').classList.remove('hidden');
-            }
-        }
-        
-        function sendLoginOTP() {
+        // ==================== LOGIN FUNCTION ====================
+        function loginWithUsername() {
             const username = document.getElementById('loginUsername').value.trim().toLowerCase();
             
             if (!username) {
@@ -1807,172 +1453,40 @@
                 return;
             }
             
-            const btn = document.getElementById('loginBtn');
-            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending OTP...';
-            btn.disabled = true;
+            currentUser = username;
             
-            const email = USER_EMAILS[username];
-            
-            if (!email) {
-                alert('❌ No email found for this account');
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send OTP';
-                btn.disabled = false;
-                return;
-            }
-            
-            const otp = Math.floor(1000 + Math.random() * 9000).toString();
-            
-            otpData = {
-                code: otp,
-                username: username,
-                email: email,
-                timestamp: Date.now(),
-                mode: 'login'
+            // Get user's full name (demo - in real app, this comes from API)
+            const fullNames = {
+                'leomessi': 'Lionel Messi',
+                'cristiano': 'Cristiano Ronaldo',
+                'kimkardashian': 'Kim Kardashian',
+                'zuck': 'Mark Zuckerberg',
+                'nasa': 'NASA',
+                'nightorbit': 'Nightorbit Official',
+                'farooq': 'Farooq Ahmed',
+                'gyidibazar': 'Gyidi Bazar'
             };
             
-            emailjs.send('service_4j3fqsg', 'template_9wuzw3x', {
-                user_email: email,
-                name: username,
-                message: `🔐 Your login OTP is: ${otp}\n\nValid for 5 minutes.\n\nLogin attempt for @${username}`
-            }).then(() => {
-                document.getElementById('otpEmail').innerHTML = `<i class="fas fa-envelope"></i> ${email}`;
-                document.getElementById('otpSection').classList.add('active');
-                
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> OTP Sent';
-                btn.disabled = false;
-                
-                startOtpTimer(300);
-            }).catch(error => {
-                alert('❌ Failed to send OTP: ' + error.text);
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send OTP';
-                btn.disabled = false;
-            });
-        }
-        
-        function sendForgotOTP() {
-            const username = document.getElementById('forgotUsername').value.trim().toLowerCase();
+            document.getElementById('userAvatar').textContent = username.substring(0,2).toUpperCase();
+            document.getElementById('userName').textContent = username;
+            document.getElementById('userFullName').textContent = fullNames[username] || username;
             
-            if (!username) {
-                alert('❌ Please enter username');
-                return;
-            }
-            
-            if (!VALID_USERS.includes(username)) {
-                alert(`❌ Username "${username}" not found.`);
-                return;
-            }
-            
-            const btn = document.getElementById('forgotBtn');
-            btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Sending...';
-            btn.disabled = true;
-            
-            const email = USER_EMAILS[username];
-            
-            const otp = Math.floor(1000 + Math.random() * 9000).toString();
-            
-            otpData = {
-                code: otp,
-                username: username,
-                email: email,
-                timestamp: Date.now(),
-                mode: 'forgot'
-            };
-            
-            emailjs.send('service_4j3fqsg', 'template_9wuzw3x', {
-                user_email: email,
-                name: username,
-                message: `🔐 Your password reset OTP is: ${otp}\n\nValid for 5 minutes.\n\nReset request for @${username}`
-            }).then(() => {
-                document.getElementById('otpEmail').innerHTML = `<i class="fas fa-envelope"></i> ${email}`;
-                document.getElementById('otpSection').classList.add('active');
-                
-                btn.innerHTML = '<i class="fas fa-key"></i> Reset Password';
-                btn.disabled = false;
-                
-                startOtpTimer(300);
-            }).catch(error => {
-                alert('❌ Failed to send OTP: ' + error.text);
-                btn.innerHTML = '<i class="fas fa-key"></i> Reset Password';
-                btn.disabled = false;
-            });
-        }
-        
-        function startOtpTimer(duration) {
-            if (otpTimer) clearInterval(otpTimer);
-            
-            const timerDisplay = document.getElementById('otpTimer');
-            let timeLeft = duration;
-            
-            otpTimer = setInterval(() => {
-                const mins = Math.floor(timeLeft / 60);
-                const secs = timeLeft % 60;
-                timerDisplay.textContent = `⏳ OTP expires in ${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-                
-                if (timeLeft <= 0) {
-                    clearInterval(otpTimer);
-                    timerDisplay.textContent = '❌ OTP expired';
-                    otpData = null;
-                }
-                timeLeft--;
-            }, 1000);
-        }
-        
-        function verifyOTP() {
-            const enteredOtp = document.getElementById('otpCode').value;
-            
-            if (!otpData || !otpData.code) {
-                alert('❌ No OTP sent. Please request again.');
-                return;
-            }
-            
-            if (Date.now() - otpData.timestamp > 300000) {
-                alert('❌ OTP expired. Please request new one.');
-                return;
-            }
-            
-            if (enteredOtp !== otpData.code) {
-                alert('❌ Invalid OTP');
-                return;
-            }
-            
-            currentUser = otpData.username;
-            
-            document.getElementById('userAvatar').textContent = currentUser.substring(0,2).toUpperCase();
-            document.getElementById('userName').textContent = currentUser;
-            document.getElementById('userEmail').textContent = otpData.email;
-            
+            // Hide login, show main app
             document.getElementById('loginOverlay').style.display = 'none';
             document.getElementById('mainContainer').style.display = 'block';
             
+            // Load following list
             loadFollowingList();
             
-            clearInterval(otpTimer);
-            
-            if (otpData.mode === 'login') {
-                alert(`✅ Welcome @${currentUser}!`);
-            } else {
-                alert(`✅ Password reset successful! New password sent to your email.`);
-            }
-        }
-        
-        function resendOTP() {
-            if (otpData && otpData.username) {
-                if (otpData.mode === 'login') {
-                    document.getElementById('loginUsername').value = otpData.username;
-                    sendLoginOTP();
-                } else {
-                    document.getElementById('forgotUsername').value = otpData.username;
-                    sendForgotOTP();
-                }
-            }
+            // Automatically fetch user's own profile
+            document.getElementById('usernameInput').value = username;
+            fetchAllInstagramData();
         }
         
         function logout() {
             currentUser = null;
             document.getElementById('loginOverlay').style.display = 'flex';
             document.getElementById('mainContainer').style.display = 'none';
-            document.getElementById('otpSection').classList.remove('active');
-            document.getElementById('otpCode').value = '';
         }
         
         function loadFollowingList() {
@@ -2022,27 +1536,29 @@
             list.innerHTML = html || '<p style="text-align:center; padding:20px;">No matching users found</p>';
         }
         
-        // ==================== MAIN FETCH FUNCTION ====================
+        // ==================== API FETCH FUNCTIONS ====================
         async function fetchAllInstagramData() {
             const username = document.getElementById('usernameInput').value.trim();
             
             if (!username) {
-                showError('Please enter a username', 'Username cannot be empty', 'Enter a valid Instagram username like "leomessi"');
+                showError('Please enter a username', 'Username cannot be empty', 'Enter a valid Instagram username');
                 return;
             }
             
-            // Reset all displays
             resetDisplay();
             
-            // Show loading
             document.getElementById('loadingSection').style.display = 'block';
             document.getElementById('resultCard').style.display = 'none';
             document.getElementById('errorSection').style.display = 'none';
             document.getElementById('fetchBtn').disabled = true;
             
             try {
-                // ========== STEP 1: FETCH PROFILE INFO ==========
-                updateLoadingText('Fetching profile information...');
+                // Check if user follows this account (for private accounts)
+                const following = FOLLOWING_RELATIONS[currentUser] || [];
+                const canViewFull = following.includes(username) || currentUser === username;
+                
+                // Fetch profile
+                updateLoadingText('Fetching profile...');
                 const profileResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_info?username=${username}`, {
                     method: 'GET',
                     headers: {
@@ -2051,28 +1567,17 @@
                     }
                 });
                 
-                if (profileResponse.status === 403) {
-                    throw new Error('API_KEY_NOT_ACTIVE');
-                }
-                
                 if (!profileResponse.ok) {
-                    throw new Error(`API_ERROR_${profileResponse.status}`);
-                }
-                
-                const profileResult = await profileResponse.json();
-                console.log('✅ Profile Data:', profileResult);
-                
-                if (profileResult.status === 'error' || !profileResult.data) {
                     throw new Error('USER_NOT_FOUND');
                 }
                 
+                const profileResult = await profileResponse.json();
                 profileData = profileResult.data || profileResult;
                 
-                // ========== STEP 2: FETCH POSTS ==========
-                updateLoadingText('Fetching recent posts with locations...');
+                // Fetch posts
+                updateLoadingText('Fetching posts...');
                 try {
                     const postsResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_posts?username=${username}&count=12`, {
-                        method: 'GET',
                         headers: {
                             'x-rapidapi-key': RAPIDAPI_KEY,
                             'x-rapidapi-host': RAPIDAPI_HOST
@@ -2084,423 +1589,173 @@
                         postsData = postsResult.data || postsResult || [];
                     }
                 } catch (e) {
-                    console.log('Posts fetch error (non-critical):', e);
                     postsData = [];
                 }
                 
-                // ========== STEP 3: FETCH FOLLOWERS (first 50) ==========
-                updateLoadingText('Fetching followers list...');
-                try {
-                    const followersResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_followers_v2?username=${username}&count=50`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'x-rapidapi-key': RAPIDAPI_KEY,
-                            'x-rapidapi-host': RAPIDAPI_HOST
-                        },
-                        body: new URLSearchParams({ username })
-                    });
-                    
-                    if (followersResponse.ok) {
-                        const followersResult = await followersResponse.json();
-                        followersData = followersResult.data || followersResult || [];
+                // Fetch followers (only if can view)
+                if (canViewFull) {
+                    updateLoadingText('Fetching followers...');
+                    try {
+                        const followersResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_followers_v2?username=${username}&count=30`, {
+                            method: 'POST',
+                            headers: {
+                                'x-rapidapi-key': RAPIDAPI_KEY,
+                                'x-rapidapi-host': RAPIDAPI_HOST
+                            },
+                            body: new URLSearchParams({ username })
+                        });
+                        
+                        if (followersResponse.ok) {
+                            const followersResult = await followersResponse.json();
+                            followersData = followersResult.data || followersResult || [];
+                        }
+                    } catch (e) {
+                        followersData = [];
                     }
-                } catch (e) {
-                    console.log('Followers fetch error (non-critical):', e);
-                    followersData = [];
+                    
+                    // Fetch following
+                    updateLoadingText('Fetching following...');
+                    try {
+                        const followingResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_followings_v2?username=${username}&count=30`, {
+                            method: 'POST',
+                            headers: {
+                                'x-rapidapi-key': RAPIDAPI_KEY,
+                                'x-rapidapi-host': RAPIDAPI_HOST
+                            },
+                            body: new URLSearchParams({ username })
+                        });
+                        
+                        if (followingResponse.ok) {
+                            const followingResult = await followingResponse.json();
+                            followingData = followingResult.data || followingResult || [];
+                        }
+                    } catch (e) {
+                        followingData = [];
+                    }
                 }
                 
-                // ========== STEP 4: FETCH FOLLOWING (first 50) ==========
-                updateLoadingText('Fetching following list...');
-                try {
-                    const followingResponse = await fetch(`https://instagram-scraper-stable-api.p.rapidapi.com/get_ig_user_followings_v2?username=${username}&count=50`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'x-rapidapi-key': RAPIDAPI_KEY,
-                            'x-rapidapi-host': RAPIDAPI_HOST
-                        },
-                        body: new URLSearchParams({ username })
-                    });
-                    
-                    if (followingResponse.ok) {
-                        const followingResult = await followingResponse.json();
-                        followingData = followingResult.data || followingResult || [];
-                    }
-                } catch (e) {
-                    console.log('Following fetch error (non-critical):', e);
-                    followingData = [];
-                }
-                
-                // ========== STEP 5: DISPLAY ALL DATA ==========
-                displayAllData();
+                displayAllData(canViewFull);
                 
             } catch (error) {
-                console.error('❌ Error:', error);
-                
-                // Handle specific errors
-                if (error.message === 'API_KEY_NOT_ACTIVE') {
-                    showError(
-                        'API KEY NOT ACTIVATED',
-                        'Your API key is valid but not yet activated for this endpoint.',
-                        'Wait 5-10 minutes after subscribing. If issue persists, check RapidAPI subscription.'
-                    );
-                } else if (error.message === 'USER_NOT_FOUND') {
-                    showError(
-                        'USER NOT FOUND',
-                        'The Instagram username does not exist or is private.',
-                        'Try a public username like "leomessi" or "cristiano"'
-                    );
-                } else if (error.message.includes('API_ERROR_')) {
-                    const code = error.message.split('_')[2];
-                    showError(
-                        `API ERROR ${code}`,
-                        'The Instagram API returned an error.',
-                        'This usually happens with private accounts. Try a public account.'
-                    );
-                } else {
-                    showError(
-                        'FETCH ERROR',
-                        error.message || 'Unknown error occurred',
-                        'Please try again or use a different username'
-                    );
-                }
+                console.error('Error:', error);
+                showError('ERROR', error.message, 'Try another username');
             } finally {
                 document.getElementById('loadingSection').style.display = 'none';
                 document.getElementById('fetchBtn').disabled = false;
             }
         }
         
-        // ==================== UPDATE LOADING TEXT ====================
+        function displayAllData(canViewFull) {
+            document.getElementById('resultCard').style.display = 'block';
+            
+            // Profile header
+            document.getElementById('fullName').textContent = profileData.full_name || 'Unknown';
+            document.getElementById('username').textContent = '@' + (profileData.username || 'unknown');
+            document.getElementById('bio').innerHTML = profileData.biography || 'No biography';
+            
+            // Badges
+            const badges = [];
+            if (profileData.is_verified) badges.push('<span class="verified-badge">✓ VERIFIED</span>');
+            if (profileData.is_private) badges.push('<span class="private-badge">🔒 PRIVATE</span>');
+            document.getElementById('accountBadges').innerHTML = badges.join(' ');
+            
+            // Stats
+            document.getElementById('postsCount').textContent = formatNumber(profileData.media_count || 0);
+            document.getElementById('followersCount').textContent = formatNumber(profileData.follower_count || 0);
+            document.getElementById('followingCount').textContent = formatNumber(profileData.following_count || 0);
+            document.getElementById('totalFollowers').textContent = formatNumber(profileData.follower_count || 0);
+            document.getElementById('totalFollowing').textContent = formatNumber(profileData.following_count || 0);
+            
+            // Posts
+            let postsHTML = '';
+            if (postsData && postsData.length > 0) {
+                postsData.slice(0, 9).forEach(post => {
+                    postsHTML += `
+                        <div class="post-card">
+                            <div class="post-image">
+                                <img src="${post.image_url || 'https://via.placeholder.com/300'}" 
+                                     style="width:100%; height:100%; object-fit:cover;">
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                postsHTML = '<div style="grid-column: span 3; text-align: center; padding: 30px;">No posts available</div>';
+            }
+            document.getElementById('postsGrid').innerHTML = postsHTML;
+            
+            // Followers
+            let followersHTML = '';
+            if (canViewFull && followersData.length > 0) {
+                followersData.slice(0, 20).forEach(follower => {
+                    followersHTML += `
+                        <div class="follower-item">
+                            <div class="follower-info">
+                                <div class="follower-avatar">${follower.username ? follower.username.substring(0,2).toUpperCase() : '?'}</div>
+                                <div class="follower-name">
+                                    <h4>${follower.full_name || 'Unknown'}</h4>
+                                    <p>@${follower.username || 'unknown'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else if (!canViewFull) {
+                followersHTML = '<div style="padding: 30px; text-align: center;">🔒 Private account - follow to view</div>';
+            }
+            document.getElementById('followersList').innerHTML = followersHTML || '<div style="padding: 20px; text-align: center;">No followers data</div>';
+            
+            // Following
+            let followingHTML = '';
+            if (canViewFull && followingData.length > 0) {
+                followingData.slice(0, 20).forEach(following => {
+                    followingHTML += `
+                        <div class="follower-item">
+                            <div class="follower-info">
+                                <div class="follower-avatar">${following.username ? following.username.substring(0,2).toUpperCase() : '?'}</div>
+                                <div class="follower-name">
+                                    <h4>${following.full_name || 'Unknown'}</h4>
+                                    <p>@${following.username || 'unknown'}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else if (!canViewFull) {
+                followingHTML = '<div style="padding: 30px; text-align: center;">🔒 Private account - follow to view</div>';
+            }
+            document.getElementById('followingListSection').innerHTML = followingHTML || '<div style="padding: 20px; text-align: center;">No following data</div>';
+            
+            // Raw data
+            const combinedData = {
+                profile: profileData,
+                posts: postsData,
+                followers: followersData,
+                following: followingData
+            };
+            document.getElementById('rawDataPre').textContent = JSON.stringify(combinedData, null, 2);
+        }
+        
         function updateLoadingText(text) {
             document.querySelector('.loading-text').textContent = text;
         }
         
-        // ==================== RESET DISPLAY ====================
         function resetDisplay() {
             document.getElementById('postsGrid').innerHTML = '';
             document.getElementById('followersList').innerHTML = '';
             document.getElementById('followingListSection').innerHTML = '';
         }
         
-        // ==================== DISPLAY ALL DATA ====================
-        function displayAllData() {
-            document.getElementById('resultCard').style.display = 'block';
-            
-            // ===== PROFILE HEADER =====
-            document.getElementById('fullName').textContent = profileData.full_name || 'Unknown';
-            document.getElementById('username').textContent = '@' + (profileData.username || 'unknown');
-            
-            // Bio
-            document.getElementById('bio').innerHTML = profileData.biography ? 
-                `<i class="fas fa-quote-left" style="opacity: 0.5; margin-right: 5px;"></i> ${profileData.biography}` :
-                '<i class="fas fa-quote-left" style="opacity: 0.5; margin-right: 5px;"></i> No biography available';
-            
-            // Account badges
-            const badges = [];
-            if (profileData.is_verified) badges.push('<span class="verified-badge"><i class="fas fa-check-circle"></i> VERIFIED</span>');
-            if (profileData.is_private) badges.push('<span class="private-badge"><i class="fas fa-lock"></i> PRIVATE</span>');
-            if (profileData.is_business) badges.push('<span class="badge real"><i class="fas fa-briefcase"></i> BUSINESS</span>');
-            
-            document.getElementById('accountBadges').innerHTML = badges.join(' ') || 
-                '<span class="badge"><i class="fas fa-user"></i> PERSONAL</span>';
-            
-            // ===== STATS =====
-            document.getElementById('postsCount').textContent = formatNumber(profileData.media_count || 0);
-            document.getElementById('followersCount').textContent = formatNumber(profileData.follower_count || 0);
-            document.getElementById('followingCount').textContent = formatNumber(profileData.following_count || 0);
-            
-            // Account age (estimated)
-            if (profileData.created_at) {
-                const created = new Date(profileData.created_at * 1000);
-                const now = new Date();
-                const years = now.getFullYear() - created.getFullYear();
-                document.getElementById('accountAge').textContent = years + ' years';
-            } else {
-                document.getElementById('accountAge').textContent = 'Unknown';
-            }
-            
-            // ===== LOCATION SECTION =====
-            let city = 'Not Available';
-            let bioLocation = '';
-            let mostTaggedCity = 'Not Available';
-            let lastPostLocation = 'Not Available';
-            let frequentLocations = [];
-            
-            // Extract from bio
-            if (profileData.biography) {
-                const bio = profileData.biography;
-                
-                const locationMatch1 = bio.match(/📍\s*([^\n]+)/);
-                if (locationMatch1) {
-                    bioLocation = locationMatch1[1].trim();
-                    city = bioLocation;
-                }
-                
-                const locationMatch2 = bio.match(/location[:\s]+([^\n]+)/i);
-                if (locationMatch2) bioLocation = locationMatch2[1].trim();
-                
-                const locationMatch3 = bio.match(/based in\s+([^\n]+)/i);
-                if (locationMatch3) bioLocation = locationMatch3[1].trim();
-                
-                const locationMatch4 = bio.match(/from\s+([^\n]+)/i);
-                if (locationMatch4) bioLocation = locationMatch4[1].trim();
-            }
-            
-            // Extract from posts
-            if (postsData && postsData.length > 0) {
-                const locationCounts = {};
-                
-                postsData.forEach(post => {
-                    if (post.location) {
-                        const locName = post.location.name || post.location.city || '';
-                        if (locName) {
-                            locationCounts[locName] = (locationCounts[locName] || 0) + 1;
-                        }
-                    }
-                });
-                
-                let maxCount = 0;
-                Object.entries(locationCounts).forEach(([loc, count]) => {
-                    if (count > maxCount) {
-                        maxCount = count;
-                        mostTaggedCity = loc;
-                    }
-                });
-                
-                if (postsData[0] && postsData[0].location) {
-                    lastPostLocation = postsData[0].location.name || postsData[0].location.city || 'Not Available';
-                }
-                
-                frequentLocations = Object.entries(locationCounts)
-                    .sort((a, b) => b[1] - a[1])
-                    .slice(0, 3)
-                    .map(item => item[0]);
-            }
-            
-            document.getElementById('cityName').innerHTML = `<i class="fas fa-map-pin"></i> ${city}`;
-            document.getElementById('bioLocation').textContent = bioLocation || 'Not Available';
-            document.getElementById('country').textContent = profileData.country || 'Not Available';
-            document.getElementById('timezone').textContent = profileData.timezone || 'Not Available';
-            document.getElementById('mostTaggedCity').textContent = mostTaggedCity;
-            document.getElementById('lastPostLocation').textContent = lastPostLocation;
-            document.getElementById('frequentLocations').textContent = frequentLocations.join(', ') || 'Not Available';
-            
-            // ===== CONTACT SECTION =====
-            let email = 'No email found in bio';
-            let phone = 'Not Available';
-            let website = 'Not Available';
-            let whatsapp = 'Not Available';
-            
-            if (profileData.biography) {
-                const bio = profileData.biography;
-                const emailMatch = bio.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g);
-                if (emailMatch && emailMatch[0]) {
-                    email = emailMatch[0];
-                }
-                
-                const phoneMatch = bio.match(/(\+?\d{10,15})/g);
-                if (phoneMatch && phoneMatch[0]) {
-                    phone = phoneMatch[0];
-                }
-            }
-            
-            if (profileData.business_email) {
-                email = profileData.business_email;
-            }
-            if (profileData.business_phone) {
-                phone = profileData.business_phone;
-            }
-            if (profileData.external_url) {
-                website = profileData.external_url;
-            }
-            
-            document.getElementById('emailDisplay').innerHTML = `<i class="fas fa-envelope"></i> ${email}`;
-            document.getElementById('phoneNumber').textContent = phone;
-            document.getElementById('website').textContent = website;
-            document.getElementById('whatsapp').textContent = whatsapp;
-            
-            // ===== ACCOUNT STATUS =====
-            document.getElementById('accountType').innerHTML = profileData.is_private ? 
-                '<span class="private-badge"><i class="fas fa-lock"></i> PRIVATE</span>' : 
-                '<span class="badge real"><i class="fas fa-globe"></i> PUBLIC</span>';
-            
-            document.getElementById('verified').innerHTML = profileData.is_verified ? 
-                '<span class="verified-badge"><i class="fas fa-check-circle"></i> VERIFIED</span>' : 'No';
-            
-            document.getElementById('businessAccount').innerHTML = profileData.is_business ? 
-                '<span class="badge real"><i class="fas fa-briefcase"></i> YES</span>' : 'No';
-            
-            document.getElementById('category').textContent = profileData.category || 'Not Available';
-            
-            if (profileData.created_at) {
-                const date = new Date(profileData.created_at * 1000);
-                document.getElementById('createdAt').textContent = date.toLocaleDateString();
-            } else {
-                document.getElementById('createdAt').textContent = 'Unknown';
-            }
-            
-            if (profileData.last_active) {
-                const date = new Date(profileData.last_active * 1000);
-                document.getElementById('lastActive').textContent = date.toLocaleDateString();
-            } else {
-                document.getElementById('lastActive').textContent = 'Recently active';
-            }
-            
-            // ===== POSTS GRID =====
-            let postsHTML = '';
-            if (postsData && postsData.length > 0) {
-                postsData.slice(0, 12).forEach(post => {
-                    let postLocation = 'No location';
-                    if (post.location) {
-                        postLocation = post.location.name || post.location.city || 'Tagged';
-                    }
-                    
-                    postsHTML += `
-                        <div class="post-card">
-                            <div class="post-image">
-                                <img src="${post.image_url || 'https://via.placeholder.com/300'}" 
-                                     style="width:100%; height:100%; object-fit:cover;"
-                                     onerror="this.src='https://via.placeholder.com/300'">
-                                <div class="post-location-tag">
-                                    <i class="fas fa-map-marker-alt"></i> ${postLocation}
-                                </div>
-                            </div>
-                            <div class="post-info">
-                                <div class="post-caption">${post.caption ? post.caption.substring(0, 60) + '...' : 'No caption'}</div>
-                                <div class="post-stats">
-                                    <span><i class="fas fa-heart" style="color:#ff4757"></i> ${formatNumber(post.likes || 0)}</span>
-                                    <span><i class="fas fa-comment"></i> ${formatNumber(post.comments || 0)}</span>
-                                    <span><i class="fas fa-clock"></i> ${post.timestamp ? new Date(post.timestamp * 1000).toLocaleDateString() : 'Recently'}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                postsHTML = '<div style="grid-column: span 3; text-align: center; padding: 50px; background: #f8f9fa; border-radius: 20px;">No posts available or account is private</div>';
-            }
-            document.getElementById('postsGrid').innerHTML = postsHTML;
-            
-            // ===== FOLLOWERS LIST =====
-            document.getElementById('totalFollowers').textContent = profileData.follower_count || 0;
-            
-            let followersHTML = '';
-            let emailsExtracted = 0;
-            
-            if (followersData && followersData.length > 0) {
-                followersData.slice(0, 30).forEach(follower => {
-                    const followerEmail = follower.biography ? 
-                        (follower.biography.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g) || [])[0] : null;
-                    
-                    if (followerEmail) emailsExtracted++;
-                    
-                    followersHTML += `
-                        <div class="follower-item">
-                            <div class="follower-info">
-                                <div class="follower-avatar"><i class="fas fa-user"></i></div>
-                                <div class="follower-name">
-                                    <h4>${follower.full_name || 'Unknown'}</h4>
-                                    <p>@${follower.username || 'unknown'}</p>
-                                </div>
-                            </div>
-                            <div class="follower-email">
-                                ${followerEmail || 'No email'}
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                followersHTML = '<div style="padding: 30px; text-align: center;">No followers data available (private account or API limit)</div>';
-            }
-            document.getElementById('followersList').innerHTML = followersHTML;
-            document.getElementById('extractedEmailsCount').textContent = emailsExtracted;
-            
-            // ===== FOLLOWING LIST =====
-            document.getElementById('totalFollowing').textContent = profileData.following_count || 0;
-            
-            let followingHTML = '';
-            if (followingData && followingData.length > 0) {
-                followingData.slice(0, 30).forEach(following => {
-                    followingHTML += `
-                        <div class="follower-item">
-                            <div class="follower-info">
-                                <div class="follower-avatar"><i class="fas fa-user"></i></div>
-                                <div class="follower-name">
-                                    <h4>${following.full_name || 'Unknown'}</h4>
-                                    <p>@${following.username || 'unknown'}</p>
-                                </div>
-                            </div>
-                            <div class="follower-email">
-                                ${following.is_verified ? '<span class="verified-badge"><i class="fas fa-check-circle"></i> VERIFIED</span>' : ''}
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                followingHTML = '<div style="padding: 30px; text-align: center;">No following data available (private account or API limit)</div>';
-            }
-            document.getElementById('followingListSection').innerHTML = followingHTML;
-            
-            // ===== TIMELINE =====
-            let timelineHTML = '';
-            if (postsData && postsData.length > 0) {
-                postsData.slice(0, 5).forEach((post, index) => {
-                    const date = post.timestamp ? new Date(post.timestamp * 1000) : new Date();
-                    timelineHTML += `
-                        <div class="timeline-item">
-                            <div class="timeline-date">
-                                ${date.toLocaleDateString()}
-                            </div>
-                            <div class="timeline-content">
-                                <strong>Posted a photo</strong>
-                                <p style="color:#666; margin-top:5px;">${post.caption ? post.caption.substring(0, 100) : 'No caption'}</p>
-                                <div style="margin-top:8px;">
-                                    <span style="background: #f0f0f0; padding:3px 10px; border-radius:50px; font-size:11px;">
-                                        📍 ${post.location ? (post.location.name || post.location.city || 'No location') : 'No location'}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                timelineHTML = '<div style="text-align: center; padding: 30px;">No timeline data available</div>';
-            }
-            document.getElementById('timelineSection').innerHTML = timelineHTML;
-            
-            // ===== STORIES & HIGHLIGHTS =====
-            document.getElementById('storiesCount').textContent = '0 stories';
-            
-            // ===== RAW DATA =====
-            const combinedData = {
-                profile: profileData,
-                posts: postsData,
-                followers: followersData,
-                following: followingData,
-                fetched_at: new Date().toISOString(),
-                data_source: 'RockSolid Instagram Stable API',
-                is_real_data: true,
-                no_fake_info: true
-            };
-            
-            document.getElementById('rawDataPre').textContent = JSON.stringify(combinedData, null, 2);
-            
-            highlightJSON();
-        }
-        
-        // ==================== HELPER FUNCTIONS ====================
         function formatNumber(num) {
-            if (num === null || num === undefined) return '0';
-            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+            if (num >= 1000000) return (num/1000000).toFixed(1) + 'M';
+            if (num >= 1000) return (num/1000).toFixed(1) + 'K';
             return num.toString();
         }
         
         function showError(title, message, solution) {
             document.getElementById('errorTitle').textContent = title;
             document.getElementById('errorMessage').textContent = message;
-            document.getElementById('errorSolution').textContent = '💡 SOLUTION: ' + solution;
+            document.getElementById('errorSolution').textContent = '💡 ' + solution;
             document.getElementById('errorSection').style.display = 'block';
             document.getElementById('loadingSection').style.display = 'none';
             document.getElementById('resultCard').style.display = 'none';
@@ -2518,19 +1773,6 @@
                 icon.className = 'fas fa-chevron-up';
             }
         }
-        
-        function highlightJSON() {
-            const pre = document.getElementById('rawDataPre');
-            if (pre) {
-                // Keep as is
-            }
-        }
-        
-        window.addEventListener('load', function() {
-            console.log('✅ Instagram Complete Data Fetcher Ready');
-            console.log('🔑 API Key:', RAPIDAPI_KEY);
-            console.log('📱 Ready to fetch real Instagram data');
-        });
     </script>
 </body>
 </html>

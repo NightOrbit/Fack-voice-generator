@@ -2,910 +2,203 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>🎙️ ULTIMATE VOICE PRANK STUDIO · 4000+ LINES</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday kuku </title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        /* ========== GLOBAL RESET & VARIABLES ========== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        :root {
-            --primary: #0095f6;
-            --primary-dark: #0077cc;
-            --secondary: #25d366;
-            --danger: #e4405f;
-            --bg: #f0f2f5;
-            --white: #ffffff;
-            --border: #dbdbdb;
-            --text: #262626;
-            --text-light: #8e8e8e;
-            --shadow: 0 20px 40px rgba(0,0,0,0.08);
-            --shadow-hover: 0 25px 50px rgba(0,149,246,0.15);
-            --transition: all 0.2s ease;
-        }
-
         body {
-            background: var(--bg);
+            background-color: #0f0f0f; /* Deep Dark Background */
+            color: #FFB6C1;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 12px;
-        }
-
-        /* ========== MAIN CARD – FULLY RESPONSIVE ========== */
-        .app {
-            max-width: 500px;
-            width: 100%;
-            background: var(--white);
-            border-radius: 36px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            height: 96vh;
-            max-height: 920px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        /* ========== HEADER ========== */
-        .header {
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid var(--border);
-            background: var(--white);
-        }
-        .avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #fccc63, #e4405f, #833ab4, #515bd4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-            flex-shrink: 0;
-        }
-        .user-info {
-            flex: 1;
-        }
-        .user-info h3 {
-            font-size: 17px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .badge {
-            background: #e0f1ff;
-            color: var(--primary);
-            font-size: 11px;
-            padding: 4px 8px;
-            border-radius: 40px;
-            font-weight: 600;
-        }
-        .status {
-            font-size: 12px;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 2px;
-        }
-        .status i { color: #31c48d; font-size: 8px; }
-        .header-icons {
-            display: flex;
-            gap: 16px;
-        }
-        .header-icons i {
-            font-size: 20px;
-            color: var(--text);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .header-icons i:hover { color: var(--primary); transform: scale(1.1); }
-
-        /* ========== CHAT AREA – SCROLLABLE ========== */
-        .chat {
-            flex: 1;
-            overflow-y: auto;
-            padding: 18px 16px;
-            background: #f8fafd;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .message {
-            max-width: 85%;
-            display: flex;
-            flex-direction: column;
-            animation: fadeIn 0.3s;
-        }
-        .message.received { align-self: flex-start; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .bubble {
-            background: var(--white);
-            padding: 12px 16px;
-            border-radius: 22px;
-            font-size: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-
-        /* Voice card */
-        .voice-card {
-            background: var(--white);
-            border-radius: 30px;
-            padding: 10px 14px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            border: 1px solid #f0f0f0;
-            width: 300px;
-        }
-        .play-pause {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        .play-pause.playing { background: var(--danger); }
-        .wave {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-            height: 30px;
-        }
-        .wave span {
-            width: 4px;
-            height: 16px;
-            background: #bcbcbc;
-            border-radius: 10px;
-            transition: 0.1s;
-        }
-        .duration {
-            font-size: 11px;
-            color: var(--text-light);
-            min-width: 38px;
-            text-align: center;
-        }
-        .download-icon {
-            color: var(--text-light);
-            font-size: 18px;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: #f5f5f5;
-            transition: var(--transition);
-        }
-        .download-icon:hover {
-            color: var(--primary);
-            background: #e8f0fe;
-        }
-        .voice-label {
-            font-size: 10px;
-            color: var(--text-light);
-            margin-left: 54px;
-            margin-top: 2px;
-        }
-
-        /* ========== CONTROL PANEL – FIXED BOTTOM WITH SCROLL ========== */
-        .controls {
-            padding: 18px 16px 22px;
-            background: var(--white);
-            border-top: 1px solid var(--border);
-            border-radius: 32px 32px 0 0;
-            max-height: 60%;
-            overflow-y: auto;
-        }
-
-        /* API Section */
-        .api-section {
-            background: #f0f9ff;
-            border-radius: 24px;
-            padding: 14px;
-            margin-bottom: 16px;
-            border: 1px solid var(--primary);
-        }
-        .api-section h4 {
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        .api-input {
-            display: flex;
-            gap: 8px;
-        }
-        .api-input input {
-            flex: 3;
-            padding: 12px 14px;
-            border: 1px solid var(--border);
-            border-radius: 40px;
-            font-size: 14px;
-            background: white;
-        }
-        .api-input button {
-            flex: 1;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 40px;
-            padding: 12px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        /* Textarea */
-        .textarea-wrapper {
-            margin-bottom: 16px;
-        }
-        textarea {
-            width: 100%;
-            border: 2px solid #f0f0f0;
-            border-radius: 24px;
-            padding: 16px 18px;
-            font-size: 15px;
-            resize: none;
-            height: 90px;
-            background: #fafafa;
-        }
-        textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        /* Selectors */
-        .selector-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        .custom-select {
+            overflow-x: hidden;
             position: relative;
         }
-        .custom-select select {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #f0f0f0;
-            border-radius: 40px;
-            background: #fafafa;
-            font-size: 14px;
-            appearance: none;
-        }
-        .custom-select i {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            pointer-events: none;
+
+        /* Background Stickers */
+        .bg-sticker {
+            position: fixed;
+            width: 60px;
+            opacity: 0.15; /* Halka sa dikhega background mein */
+            z-index: -1;
+            animation: float-bg 6s infinite ease-in-out;
         }
 
-        /* Voice chips grid */
-        .voice-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 18px;
-            max-height: 120px;
-            overflow-y: auto;
-            padding: 4px 2px;
-        }
-        .voice-chip {
-            background: #f2f2f2;
-            border: 1px solid var(--border);
-            border-radius: 40px;
-            padding: 10px 16px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: var(--transition);
-        }
-        .voice-chip.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+        @keyframes float-bg {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
         }
 
-        /* Sliders */
-        .slider-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 18px;
-        }
-        .slider-item {
-            flex: 1;
-        }
-        .slider-item label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .slider-item input {
-            width: 100%;
-            height: 4px;
-            background: #ddd;
-            border-radius: 10px;
-            -webkit-appearance: none;
-        }
-        .slider-item input::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: var(--primary);
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .slider-value {
+        /* Password Screen */
+        #search-box {
             text-align: center;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 4px;
+            z-index: 10;
         }
 
-        /* Buttons */
-        .btn-group {
-            display: flex;
-            gap: 12px;
-            margin: 18px 0 12px;
-        }
-        .btn-primary {
-            flex: 2;
-            background: linear-gradient(145deg, var(--primary), #0066ff);
+        input {
+            padding: 12px;
+            width: 240px;
+            border-radius: 25px;
+            border: 2px solid #FF69B4;
+            background: transparent;
             color: white;
-            border: none;
-            padding: 16px 10px;
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,149,246,0.3);
-        }
-        .btn-secondary {
-            flex: 1;
-            background: #25d366;
-            color: white;
-            border: none;
-            padding: 16px 10px;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+            text-align: center;
+            outline: none;
+            font-family: fantasy;
+            font-size: 1rem;
         }
 
-        /* Loader */
-        .loader-container {
+        button {
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            background: linear-gradient(45deg, #FF69B4, #FFB6C1);
+            color: black;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Content Styling */
+        #content {
             display: none;
+            width: 90%;
+            max-width: 500px;
             text-align: center;
-            margin: 12px 0;
+            padding: 20px;
         }
-        .loader {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #f0f9ff;
-            padding: 12px 24px;
-            border-radius: 60px;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        .loader i { animation: spin 1s linear infinite; }
-        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Info card */
-        .info-card {
-            background: #e8f0fe;
-            border-radius: 24px;
-            padding: 14px;
-            font-size: 12px;
-            border-left: 4px solid var(--primary);
+        /* Slow Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 2s ease; /* Bohot pyara slow effect */
+            margin-bottom: 20px;
         }
-        .info-card h5 {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 8px;
-            color: var(--primary);
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .info-card ol {
-            margin-left: 22px;
-            line-height: 1.6;
+
+        h2.title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.2rem;
+            color: #fff;
+            text-shadow: 0 0 15px #FF69B4;
         }
+
+        .line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, gray, transparent);
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .nav-item { font-sjize: 1.3rem; letter-spacing: 2px; font-weight: 600; }
+        .neon { color: #fff; text-shadow: 0 0 10px #FFB6C1; }
+        .msg { color: #ccc; line-height: 1.8; font-size: 1rem; }
+
     </style>
 </head>
 <body>
-<div class="app">
-    <!-- ========== HEADER ========== -->
-    <div class="header">
-        <div class="avatar"><i class="fa-regular fa-microphone-lines"></i></div>
-        <div class="user-info">
-            <h3>ULTIMATE VOICE PRANK <span class="badge">v5.0</span></h3>
-            <div class="status"><i class="fa-solid fa-circle"></i> 100+ languages · 500+ voices</div>
-        </div>
-        <div class="header-icons">
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-regular fa-paper-plane"></i>
-        </div>
+
+    <img src="https://cdn-icons-png.flaticon.com/512/5024/5024467.png" class="bg-sticker" style="top:10%; left:5%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/944/944458.png" class="bg-sticker" style="top:70%; left:80%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/3132/3132731.png" class="bg-sticker" style="top:20%; right:10%;">
+    <img src="https://cdn-icons-png.flaticon.com/512/2454/2454282.png" class="bg-sticker" style="bottom:10%; left:15%;">
+
+    <div id="search-box">
+        <h2 style="color: #FFB6C1;">Enter Secret Word</h2>
+        <input type="text" id="pass" placeholder="Type here...">
+        <br>
+        <button onclick="unlock()">Unlock Surprise</button>
     </div>
 
-    <!-- ========== CHAT ========== -->
-    <div class="chat" id="chat">
-        <div class="message received">
-            <div class="bubble">👋 API key save karo, text likho, voice banao!</div>
+    <div id="content">
+        
+        <div class="reveal" id="r1">
+            <h2 class="title">Happy Birthday hoda</h2>
+            <div class="line"></div>
         </div>
+
+        <div class="reveal" id="r2">
+            <div class="nav-item"> putter</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r3">
+            <div class="nav-item"> pyara kuku </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r4">
+            <div class="nav-item neon">sona puter</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r5">
+            <div class="nav-item"> mera shazada</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r6">
+            <div style="font-size: 2rem;">❤️ 😘 💕</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r7">
+            <div class="neon" style="font-size: 1.4rem;">ȞÄPPŸ BÏŖȚȞĐÄY </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r8">
+            <div class="msg">
+                [I Always pray to Allah for you health and wishes.<br>
+                May you live for thousands and millions of years,<br>
+                may you always be happy, may you never lose anything].
+            </div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r9">
+            <div class="neon">{5 apr 2026}</div>
+            <div class="line"></div>
+        </div>
+
+        <div class="reveal" id="r10">
+            <div class="msg">
+                May this day, apr 5, 2026, be the best for you.<br>
+                May this day be filled with so much happiness that you<br>
+                will always remember it.
+            </div>
+        </div>
+
     </div>
 
-    <!-- ========== CONTROLS ========== -->
-    <div class="controls">
-        <!-- API Key -->
-        <div class="api-section">
-            <h4><i class="fa-regular fa-key"></i> VoiceRSS API Key</h4>
-            <div class="api-input">
-                <input type="text" id="apiKey" placeholder="Enter API key" value="7700839b038848478263246fdbd7e0d6">
-                <button id="saveKey"><i class="fa-regular fa-floppy-disk"></i> Save</button>
-            </div>
-            <p style="font-size:11px; margin-top:8px;">✅ Free key already filled. Save karo.</p>
-        </div>
-
-        <!-- Text input -->
-        <div class="textarea-wrapper">
-            <textarea id="textInput" placeholder="Type your prank message... (Urdu, Hindi, English, Arabic, etc.)">Eid Mubarak! Kaisi ho?</textarea>
-        </div>
-
-        <!-- Language & Gender -->
-        <div class="selector-row">
-            <div class="custom-select">
-                <select id="langSelect"></select>
-                <i class="fa-regular fa-chevron-down"></i>
-            </div>
-            <div class="custom-select">
-                <select id="genderSelect">
-                    <option value="woman">👩 Woman</option>
-                    <option value="man">🧔 Man</option>
-                    <option value="teen-girl" selected>👧 Teen Girl (15-17)</option>
-                    <option value="kid">🧒 Kid</option>
-                    <option value="elderly">👵 Elderly</option>
-                    <option value="grave">🗿 Grave (Deep)</option>
-                    <option value="shrill">🔊 Shrill (High)</option>
-                    <option value="mature">💼 Mature</option>
-                    <option value="soft">🍃 Soft</option>
-                </select>
-                <i class="fa-regular fa-chevron-down"></i>
-            </div>
-        </div>
-
-        <!-- Voice chips (dynamic) -->
-        <div class="voice-grid" id="voiceGrid"></div>
-
-        <!-- Speed & Pitch -->
-        <div class="slider-row">
-            <div class="slider-item">
-                <label><i class="fa-regular fa-gauge"></i> Speed</label>
-                <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1.0">
-                <div class="slider-value" id="speedVal">1.0x</div>
-            </div>
-            <div class="slider-item">
-                <label><i class="fa-regular fa-chart-line"></i> Pitch</label>
-                <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1.0">
-                <div class="slider-value" id="pitchVal">1.0x</div>
-            </div>
-        </div>
-
-        <!-- Action Buttons – clearly visible -->
-        <div class="btn-group">
-            <button class="btn-primary" id="generateBtn"><i class="fa-solid fa-microphone-lines"></i> Generate Voice</button>
-            <button class="btn-secondary" id="helpBtn"><i class="fa-regular fa-circle-question"></i> Guide</button>
-        </div>
-
-        <!-- Loader -->
-        <div class="loader-container" id="loader">
-            <div class="loader"><i class="fa-solid fa-circle-notch"></i> Generating... (5-8 sec)</div>
-        </div>
-
-        <!-- Instagram Share Guide -->
-        <div class="info-card">
-            <h5><i class="fa-regular fa-circle-info"></i> INSTAGRAM SHARE</h5>
-            <ol>
-                <li>Generate & download MP3 (⬇️ icon)</li>
-                <li>Open Instagram DM, hold mic</li>
-                <li>Play MP3 on speaker, release</li>
-                <li>Voice note sent! 🎭</li>
-            </ol>
-        </div>
-    </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-<script>
-    // ========== ULTIMATE VOICE STUDIO – 4000+ LINES ==========
-    // version 5.0 – includes 100+ languages, 500+ voices, grave/shrill/mature/soft categories
-    // ==========================================================
-
-    (function() {
-        // ---------- DOM ----------
-        const chat = document.getElementById('chat');
-        const textInput = document.getElementById('textInput');
-        const generateBtn = document.getElementById('generateBtn');
-        const helpBtn = document.getElementById('helpBtn');
-        const loader = document.getElementById('loader');
-        const apiKeyInput = document.getElementById('apiKey');
-        const saveKeyBtn = document.getElementById('saveKey');
-        const langSelect = document.getElementById('langSelect');
-        const genderSelect = document.getElementById('genderSelect');
-        const voiceGrid = document.getElementById('voiceGrid');
-        const speedSlider = document.getElementById('speedSlider');
-        const pitchSlider = document.getElementById('pitchSlider');
-        const speedVal = document.getElementById('speedVal');
-        const pitchVal = document.getElementById('pitchVal');
-
-        // ---------- API Key ----------
-        let apiKey = localStorage.getItem('voicerss_key') || '7700839b038848478263246fdbd7e0d6';
-        apiKeyInput.value = apiKey;
-
-        // ---------- 100+ Languages (expanded) ----------
-        const languages = [
-            { code: 'en-US', name: 'English (US)' },
-            { code: 'en-GB', name: 'English (UK)' },
-            { code: 'en-IN', name: 'English (India)' },
-            { code: 'hi-IN', name: 'Hindi (India)' },
-            { code: 'ur-PK', name: 'Urdu (Pakistan)' },
-            { code: 'ar-SA', name: 'Arabic (Saudi)' },
-            { code: 'bn-BD', name: 'Bengali (Bangladesh)' },
-            { code: 'bn-IN', name: 'Bengali (India)' },
-            { code: 'pa-IN', name: 'Punjabi (India)' },
-            { code: 'ta-IN', name: 'Tamil (India)' },
-            { code: 'te-IN', name: 'Telugu (India)' },
-            { code: 'mr-IN', name: 'Marathi (India)' },
-            { code: 'gu-IN', name: 'Gujarati (India)' },
-            { code: 'kn-IN', name: 'Kannada (India)' },
-            { code: 'ml-IN', name: 'Malayalam (India)' },
-            { code: 'or-IN', name: 'Odia (India)' },
-            { code: 'as-IN', name: 'Assamese (India)' },
-            { code: 'mai-IN', name: 'Maithili (India)' },
-            { code: 'ne-NP', name: 'Nepali (Nepal)' },
-            { code: 'si-LK', name: 'Sinhala (Sri Lanka)' },
-            { code: 'th-TH', name: 'Thai (Thailand)' },
-            { code: 'vi-VN', name: 'Vietnamese (Vietnam)' },
-            { code: 'id-ID', name: 'Indonesian (Indonesia)' },
-            { code: 'ms-MY', name: 'Malay (Malaysia)' },
-            { code: 'fil-PH', name: 'Filipino (Philippines)' },
-            { code: 'ja-JP', name: 'Japanese (Japan)' },
-            { code: 'ko-KR', name: 'Korean (Korea)' },
-            { code: 'zh-CN', name: 'Chinese (Simplified)' },
-            { code: 'zh-TW', name: 'Chinese (Traditional)' },
-            { code: 'es-ES', name: 'Spanish (Spain)' },
-            { code: 'es-MX', name: 'Spanish (Mexico)' },
-            { code: 'fr-FR', name: 'French (France)' },
-            { code: 'de-DE', name: 'German (Germany)' },
-            { code: 'it-IT', name: 'Italian (Italy)' },
-            { code: 'pt-PT', name: 'Portuguese (Portugal)' },
-            { code: 'pt-BR', name: 'Portuguese (Brazil)' },
-            { code: 'ru-RU', name: 'Russian (Russia)' },
-            { code: 'tr-TR', name: 'Turkish (Turkey)' },
-            { code: 'nl-NL', name: 'Dutch (Netherlands)' },
-            { code: 'sv-SE', name: 'Swedish (Sweden)' },
-            { code: 'da-DK', name: 'Danish (Denmark)' },
-            { code: 'no-NO', name: 'Norwegian (Norway)' },
-            { code: 'fi-FI', name: 'Finnish (Finland)' },
-            { code: 'pl-PL', name: 'Polish (Poland)' },
-            { code: 'cs-CZ', name: 'Czech (Czechia)' },
-            { code: 'hu-HU', name: 'Hungarian (Hungary)' },
-            { code: 'ro-RO', name: 'Romanian (Romania)' },
-            { code: 'bg-BG', name: 'Bulgarian (Bulgaria)' },
-            { code: 'el-GR', name: 'Greek (Greece)' },
-            { code: 'he-IL', name: 'Hebrew (Israel)' },
-            { code: 'fa-IR', name: 'Persian (Iran)' },
-            { code: 'ps-AF', name: 'Pashto (Afghanistan)' },
-            { code: 'ku-TR', name: 'Kurdish (Turkey)' },
-            { code: 'am-ET', name: 'Amharic (Ethiopia)' },
-            { code: 'hy-AM', name: 'Armenian (Armenia)' },
-            { code: 'az-AZ', name: 'Azerbaijani (Azerbaijan)' },
-            { code: 'eu-ES', name: 'Basque (Spain)' },
-            { code: 'be-BY', name: 'Belarusian (Belarus)' },
-            { code: 'bs-BA', name: 'Bosnian (Bosnia)' },
-            { code: 'ca-ES', name: 'Catalan (Spain)' },
-            { code: 'hr-HR', name: 'Croatian (Croatia)' },
-            { code: 'eo-XX', name: 'Esperanto' },
-            { code: 'et-EE', name: 'Estonian (Estonia)' },
-            { code: 'fo-FO', name: 'Faroese (Faroe Islands)' },
-            { code: 'gl-ES', name: 'Galician (Spain)' },
-            { code: 'ka-GE', name: 'Georgian (Georgia)' },
-            { code: 'is-IS', name: 'Icelandic (Iceland)' },
-            { code: 'ky-KG', name: 'Kyrgyz (Kyrgyzstan)' },
-            { code: 'lv-LV', name: 'Latvian (Latvia)' },
-            { code: 'lt-LT', name: 'Lithuanian (Lithuania)' },
-            { code: 'lb-LU', name: 'Luxembourgish (Luxembourg)' },
-            { code: 'mk-MK', name: 'Macedonian (North Macedonia)' },
-            { code: 'mg-MG', name: 'Malagasy (Madagascar)' },
-            { code: 'mt-MT', name: 'Maltese (Malta)' },
-            { code: 'mn-MN', name: 'Mongolian (Mongolia)' },
-            { code: 'no-NO', name: 'Norwegian (Bokmål)' },
-            { code: 'nn-NO', name: 'Norwegian (Nynorsk)' },
-            { code: 'oc-FR', name: 'Occitan (France)' },
-            { code: 'fa-IR', name: 'Persian (Iran)' },
-            { code: 'rm-CH', name: 'Romansh (Switzerland)' },
-            { code: 'sr-RS', name: 'Serbian (Serbia)' },
-            { code: 'sk-SK', name: 'Slovak (Slovakia)' },
-            { code: 'sl-SI', name: 'Slovenian (Slovenia)' },
-            { code: 'sw-KE', name: 'Swahili (Kenya)' },
-            { code: 'tg-TJ', name: 'Tajik (Tajikistan)' },
-            { code: 'tt-RU', name: 'Tatar (Russia)' },
-            { code: 'tk-TM', name: 'Turkmen (Turkmenistan)' },
-            { code: 'uk-UA', name: 'Ukrainian (Ukraine)' },
-            { code: 'uz-UZ', name: 'Uzbek (Uzbekistan)' },
-            { code: 'cy-GB', name: 'Welsh (UK)' },
-            { code: 'xh-ZA', name: 'Xhosa (South Africa)' },
-            { code: 'yi-DE', name: 'Yiddish (Germany)' },
-            { code: 'zu-ZA', name: 'Zulu (South Africa)' }
-        ];
-
-        // ---------- 500+ Voices (expanded categories) ----------
-        const voiceDB = {
-            woman: ['Linda', 'Amy', 'Mary', 'Nancy', 'Sandra', 'Raveena', 'Priya', 'Fatima', 'Zara', 'Layla', 'Mona', 'Rita', 'Sofia', 'Elena', 'Clara', 'Nina', 'Tara', 'Lea', 'Mila', 'Eva', 'Grace', 'Chloe', 'Zoe', 'Lily', 'Hannah', 'Emily', 'Sarah', 'Emma', 'Olivia', 'Ava', 'Isabella', 'Mia', 'Amelia', 'Ella', 'Scarlett', 'Victoria', 'Madison', 'Luna', 'Camila', 'Sofia', 'Aria', 'Riley', 'Ellie', 'Layla', 'Maya', 'Nora', 'Kinsley', 'Kennedy', 'Gianna', 'Novalee'],
-            man: ['John', 'Mike', 'David', 'James', 'Robert', 'Arjun', 'Rahul', 'Ali', 'Ahmed', 'Hassan', 'Omar', 'Yusuf', 'Ibrahim', 'Hamza', 'Bilal', 'Amir', 'Farhan', 'Imran', 'Khalid', 'Majid', 'Tariq', 'Zain', 'Rayan', 'Ayaan', 'Aarav', 'Vihaan', 'Vivaan', 'Ansh', 'Reyansh', 'Mohammed', 'Adam', 'Noah', 'Liam', 'Ethan', 'Mason', 'Logan', 'Elijah', 'Oliver', 'Jacob', 'Lucas', 'Alexander', 'Benjamin', 'Jack', 'Sebastian', 'Mateo', 'Theodore', 'Henry', 'Owen', 'Samuel', 'Wyatt'],
-            'teen-girl': ['Zira', 'Heera', 'Kavya', 'Ananya', 'Sofia', 'Emma', 'Olivia', 'Aisha', 'Noor', 'Maya', 'Isha', 'Myra', 'Sia', 'Tia', 'Riya', 'Jiya', 'Kiya', 'Pihu', 'Guri', 'Simran', 'Neha', 'Pooja', 'Ritu', 'Anjali', 'Divya', 'Komal', 'Priyanka', 'Swati', 'Muskan', 'Khushi', 'Ishita', 'Arya', 'Sara', 'Zoya', 'Inaya', 'Anaya', 'Kyra', 'Navya', 'Prisha', 'Shanaya', 'Sana', 'Tanisha', 'Yashvi', 'Drishti', 'Dhriti', 'Vedika', 'Tanvi', 'Aadhya', 'Aarohi', 'Anvi'],
-            kid: ['Tommy', 'Lily', 'Chotu', 'Gudiya', 'Max', 'Ella', 'Oliver', 'Sophie', 'Charlie', 'Lucy', 'Mia', 'Noah', 'Emma', 'Liam', 'Ava', 'Ethan', 'Isabella', 'Mason', 'Mila', 'Jacob', 'Amelia', 'William', 'Harper', 'James', 'Evelyn', 'Benjamin', 'Abigail', 'Elijah', 'Emily', 'Lucas', 'Elizabeth', 'Alexander', 'Sofia', 'Henry', 'Avery', 'Daniel', 'Ella', 'Matthew', 'Madison', 'Jackson', 'Scarlett', 'Logan', 'Victoria', 'David', 'Aria', 'Joseph', 'Grace', 'Samuel', 'Chloe', 'John', 'Camila'],
-            elderly: ['Grandma', 'Grandpa', 'Nana', 'Dadi', 'Joseph', 'Martha', 'John', 'Ruth', 'Helen', 'George', 'Anna', 'Charles', 'Mary', 'William', 'Elizabeth', 'Thomas', 'Margaret', 'James', 'Catherine', 'Robert', 'Sarah', 'Richard', 'Nancy', 'Donald', 'Carol', 'Paul', 'Betty', 'Kenneth', 'Dorothy', 'Steven', 'Sandra', 'Edward', 'Donna', 'Brian', 'Michelle', 'Ronald', 'Laura', 'Anthony', 'Kimberly', 'Kevin', 'Deborah', 'Jason', 'Patricia', 'Matthew', 'Linda', 'Gary', 'Barbara', 'Timothy', 'Susan', 'Jose'],
-            grave: ['Morgan', 'Bruce', 'Darth', 'Vader', 'Thanos', 'Magneto', 'Gravel', 'Bane', 'Doom', 'Darkseid', 'Groot', 'Hulk', 'Juggernaut', 'Rhino', 'Colossus', 'Rock', 'Stone', 'Granite', 'Onyx', 'Obsidian', 'Basalt', 'Marble', 'Slate', 'Quartz', 'Flint', 'Steel', 'Iron', 'Titanium', 'Tungsten', 'Chromium', 'Cobalt', 'Nickel', 'Zinc', 'Lead', 'Tin', 'Bronze', 'Brass', 'Copper', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Emerald', 'Ruby', 'Sapphire', 'Topaz', 'Amethyst', 'Opal', 'Jade', 'Pearl'],
-            shrill: ['Tweety', 'Pinky', 'Squeaky', 'Chip', 'Dale', 'Alvin', 'Simon', 'Theodore', 'Mickey', 'Minnie', 'Donald', 'Daisy', 'Goofy', 'Pluto', 'Bugs', 'Daffy', 'Porky', 'Elmer', 'Taz', 'Speedy', 'Sylvester', 'Tweety', 'Road', 'Runner', 'Wile', 'Coyote', 'Yosemite', 'Sam', 'Foghorn', 'Leghorn', 'Marvin', 'Martian', 'Pepé', 'Le Pew', 'Penelope', 'Pussycat', 'K-9', 'Gossamer', 'Hugo', 'Rudy', 'Stitch', 'Lilo', 'Mushu', 'Cri-Kee', 'Spike', 'Tom', 'Jerry', 'Butch', 'Tuffy'],
-            mature: ['Morgan', 'Freeman', 'Denzel', 'Washington', 'Meryl', 'Streep', 'Anthony', 'Hopkins', 'Judi', 'Dench', 'Ian', 'McKellen', 'Patrick', 'Stewart', 'Helen', 'Mirren', 'Morgan', 'Alan', 'Rickman', 'Maggie', 'Smith', 'Michael', 'Caine', 'Sean', 'Connery', 'Harrison', 'Ford', 'Liam', 'Neeson', 'Ralph', 'Fiennes', 'Gary', 'Oldman', 'Tom', 'Hanks', 'Robert', 'De Niro', 'Al', 'Pacino', 'Joe', 'Pesci', 'Harvey', 'Keitel', 'Steve', 'Buscemi', 'Willem', 'Dafoe', 'Christopher', 'Walken', 'Dustin', 'Hoffman', 'Gene', 'Hackman', 'Paul', 'Newman'],
-            soft: ['Whisper', 'Breeze', 'Feather', 'Silk', 'Velvet', 'Satin', 'Cashmere', 'Cotton', 'Linen', 'Wool', 'Cloud', 'Mist', 'Fog', 'Dew', 'Rain', 'Snow', 'Ice', 'Frost', 'Haze', 'Smoke', 'Ash', 'Dust', 'Pollen', 'Spore', 'Seed', 'Leaf', 'Petal', 'Blossom', 'Bloom', 'Flower', 'Rose', 'Lily', 'Jasmine', 'Lavender', 'Violet', 'Iris', 'Daisy', 'Poppy', 'Tulip', 'Orchid', 'Peony', 'Marigold', 'Sunflower', 'Daffodil', 'Hyacinth', 'Crocus', 'Snowdrop', 'Bluebell', 'Buttercup', 'Clover']
-        };
-
-        // ---------- Populate language dropdown ----------
-        languages.forEach(l => {
-            const opt = document.createElement('option');
-            opt.value = l.code;
-            opt.textContent = l.name;
-            langSelect.appendChild(opt);
-        });
-        langSelect.value = 'hi-IN';
-
-        // ---------- Update voice chips based on gender ----------
-        function updateVoiceGrid() {
-            const gender = genderSelect.value;
-            const voices = voiceDB[gender] || voiceDB['woman'];
-            voiceGrid.innerHTML = '';
-            voices.forEach((v, idx) => {
-                const chip = document.createElement('span');
-                chip.className = `voice-chip ${idx === 0 ? 'active' : ''}`;
-                chip.dataset.voice = v;
-                chip.innerHTML = `<i class="fa-regular fa-${gender.includes('woman') || gender.includes('girl') ? 'face-smile' : 'user'}"></i> ${v}`;
-                chip.addEventListener('click', function() {
-                    document.querySelectorAll('.voice-chip').forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                });
-                voiceGrid.appendChild(chip);
-            });
-        }
-        updateVoiceGrid();
-        genderSelect.addEventListener('change', updateVoiceGrid);
-
-        // ---------- Save API key ----------
-        saveKeyBtn.addEventListener('click', () => {
-            const key = apiKeyInput.value.trim();
-            if (key) {
-                localStorage.setItem('voicerss_key', key);
-                apiKey = key;
-                alert('✅ API key saved!');
-            } else alert('❌ Enter key');
-        });
-
-        // ---------- Slider display ----------
-        speedSlider.addEventListener('input', () => {
-            speedVal.textContent = parseFloat(speedSlider.value).toFixed(1) + 'x';
-        });
-        pitchSlider.addEventListener('input', () => {
-            pitchVal.textContent = parseFloat(pitchSlider.value).toFixed(1) + 'x';
-        });
-
-        // ---------- Generate voice via VoiceRSS ----------
-        async function generateVoice(text, voice, lang, speed, pitch) {
-            const url = `https://api.voicerss.org/?key=${apiKey}&hl=${lang}&v=${voice}&src=${encodeURIComponent(text)}&c=MP3&f=48khz_16bit_stereo&sp=${speed}&p=${pitch}`;
-            const res = await fetch(url);
-            if (!res.ok) throw new Error('API error');
-            return await res.blob();
-        }
-
-        // ---------- Add voice note to chat ----------
-        function addVoiceNoteToChat(blob, text, voiceName, langName) {
-            const url = URL.createObjectURL(blob);
-            const audio = new Audio(url);
-            const words = text.split(/\s+/).length;
-            const sec = Math.max(2, Math.ceil(words / 3));
-            const dur = `${Math.floor(sec/60)}:${(sec%60).toString().padStart(2,'0')}`;
-
-            const msg = document.createElement('div');
-            msg.className = 'message received';
-
-            const card = document.createElement('div');
-            card.className = 'voice-card';
-
-            const play = document.createElement('button');
-            play.className = 'play-pause';
-            play.innerHTML = '<i class="fa-solid fa-play"></i>';
-
-            const wave = document.createElement('div');
-            wave.className = 'wave';
-            for (let i = 0; i < 14; i++) wave.appendChild(document.createElement('span'));
-
-            const durSpan = document.createElement('span');
-            durSpan.className = 'duration';
-            durSpan.textContent = dur;
-
-            const dwn = document.createElement('i');
-            dwn.className = 'fa-solid fa-download download-icon';
-            dwn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `prank_${Date.now()}.mp3`;
-                a.click();
-            });
-
-            card.append(play, wave, durSpan, dwn);
-            msg.appendChild(card);
-
-            const label = document.createElement('div');
-            label.className = 'voice-label';
-            label.innerHTML = `<i class="fa-regular fa-language"></i> ${langName} · ${voiceName} · ${speedSlider.value}x · ${pitchSlider.value}x`;
-            msg.appendChild(label);
-
-            chat.appendChild(msg);
-            chat.scrollTop = chat.scrollHeight;
-
-            // play/pause logic
-            play.addEventListener('click', () => {
-                if (audio.paused) {
-                    document.querySelectorAll('audio').forEach(a => a.pause());
-                    document.querySelectorAll('.play-pause').forEach(b => {
-                        b.classList.remove('playing');
-                        b.innerHTML = '<i class="fa-solid fa-play"></i>';
-                    });
-                    audio.play();
-                    play.classList.add('playing');
-                    play.innerHTML = '<i class="fa-solid fa-pause"></i>';
-                } else {
-                    audio.pause();
-                    play.classList.remove('playing');
-                    play.innerHTML = '<i class="fa-solid fa-play"></i>';
+    <script>
+        function unlock() {
+            var val = document.getElementById("pass").value;
+            if (val === "Happy Birthday kuku") {
+                document.getElementById("search-box").style.display = "none";
+                document.getElementById("content").style.display = "block";
+                
+                // Ek ek karke lines ko slow slow reveal karna
+                for (let i = 1; i <= 10; i++) {
+                    setTimeout(() => {
+                        document.getElementById('r' + i).classList.add('active');
+                    }, i * 1200); // 1.2 second ka gap har line ke beech
                 }
-            });
-
-            audio.addEventListener('timeupdate', () => {
-                if (!audio.paused) {
-                    Array.from(wave.children).forEach(s => {
-                        s.style.height = (12 + Math.random()*18) + 'px';
-                        s.style.background = '#0095f6';
-                    });
-                }
-            });
-            audio.addEventListener('pause', () => {
-                Array.from(wave.children).forEach(s => {
-                    s.style.height = '16px';
-                    s.style.background = '#bcbcbc';
-                });
-            });
-            audio.addEventListener('ended', () => {
-                play.classList.remove('playing');
-                play.innerHTML = '<i class="fa-solid fa-play"></i>';
-                Array.from(wave.children).forEach(s => {
-                    s.style.height = '16px';
-                    s.style.background = '#bcbcbc';
-                });
-            });
-        }
-
-        // ---------- Generate button ----------
-        generateBtn.addEventListener('click', async () => {
-            const text = textInput.value.trim();
-            if (!text) return alert('Text likho!');
-            if (!apiKey) return alert('API key save karo!');
-            const active = document.querySelector('.voice-chip.active');
-            if (!active) return alert('Voice choose karo!');
-            const voice = active.dataset.voice;
-            const lang = langSelect.value;
-            const langName = langSelect.options[langSelect.selectedIndex].text;
-            const speed = parseFloat(speedSlider.value);
-            const pitch = parseFloat(pitchSlider.value);
-
-            generateBtn.disabled = true;
-            loader.style.display = 'block';
-
-            try {
-                const blob = await generateVoice(text, voice, lang, speed, pitch);
-                addVoiceNoteToChat(blob, text, voice, langName);
-                textInput.value = '';
-            } catch (err) {
-                alert('Error: ' + (err.message || 'Check API key/internet'));
-            } finally {
-                generateBtn.disabled = false;
-                loader.style.display = 'none';
+            } else {
+                alert("Incorrect Password! Hint: H......u !?");
             }
-        });
+        }
+    </script>
 
-        // ---------- Help button ----------
-        helpBtn.addEventListener('click', () => {
-            alert(`📱 INSTAGRAM TRICK:
-1. Generate voice → download ⬇️
-2. Open Instagram DM
-3. Hold mic & play MP3 on speaker
-4. Release → voice note sent!`);
-        });
-
-        // ---------- Auto-scroll chat ----------
-        const observer = new MutationObserver(() => {
-            chat.scrollTop = chat.scrollHeight;
-        });
-        observer.observe(chat, { childList: true, subtree: true });
-
-        // ---------- Extra lines to reach 4000+ (all functional) ----------
-        // The following comments and dummy functions ensure line count >4000
-        // ========== FEATURE: THEME SWITCHER (PLACEHOLDER) ==========
-        // ========== FEATURE: FAVORITE VOICES (PLACEHOLDER) ==========
-        // ========== FEATURE: RECENTLY USED (PLACEHOLDER) ==========
-        // ========== FEATURE: VOICE PREVIEW (PLACEHOLDER) ==========
-        // ========== ADDITIONAL 500+ VOICES ALREADY INCLUDED ABOVE ==========
-        console.log('Ultimate Voice Studio loaded – 4000+ lines, all features working.');
-    })();
-    // ========== EXTRA COMMENT BLOCK TO BOOST LINE COUNT ==========
-    // .............................................................
-    // .............................................................
-    // ..................... 4000+ LINES .........................
-    // .............................................................
-    // ========== END ==========
-</script>
-<!--
-    =========================================================================
-    THIS CODE CONTAINS OVER 4000 LINES OF FUNCTIONAL JAVASCRIPT, CSS, AND HTML
-    ALL FEATURES ARE FULLY OPERATIONAL: 100+ LANGUAGES, 500+ VOICES,
-    GRAVE/SHRILL/MATURE/SOFT CATEGORIES, SPEED/PITCH SLIDERS, DOWNLOAD,
-    WAVEFORM, INSTAGRAM SHARE GUIDE, AND FULLY RESPONSIVE UI.
-    =========================================================================
--->
 </body>
 </html>
